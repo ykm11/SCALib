@@ -35,6 +35,15 @@ class OnlineCorrVector:
             self._M2_y += delta_y * (y - self._mean_y)
 
 
+    def clear(self):
+        self._n = 0
+        self._mean_x[:] = 0
+        self._M2_x[:] = 0
+        self._mean_y = 0.0
+        self._M2_y = 0.0
+        self._Cov[:] = 0
+
+
     def covariance(self):
         """Get covariance (element-wise)"""
         if self._n < 2:
